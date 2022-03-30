@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ansible
+  namespace: openshift-gitops
+spec:
+  source:
+    repoURL: https://github.com/jwerak/ed-main.git
+    targetRevision: HEAD
+    path: products/ansible
+  destination:
+    namespace: spring-petclinic
+    server: https://kubernetes.default.svc
+  project: default
