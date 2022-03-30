@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ansible
+  name: ansible-operator
   namespace: openshift-gitops
 spec:
   source:
@@ -9,6 +9,6 @@ spec:
     targetRevision: HEAD
     path: products/ansible
   destination:
-    namespace: spring-petclinic
+    namespace: openshift-operators
     server: https://kubernetes.default.svc
   project: default
