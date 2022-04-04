@@ -39,12 +39,15 @@ Environments:
   - `oc login --token=sha256~TOKEN --server=https://api.cluster.example.com:6443`
 - Setup Operator and application
   - `make install`
+- Setup Ansible Controller part
+  - Currently documented in [app repo](https://github.com/jwerak/ed-app)
 
 ### Architecture of this repo
 
 - Main kustomizations files are under *./overlays/*, e.g. *./overlays/demo/*
-- overlays should ideally deploy demo environment
-- The scope of kustomize in overlays should be: 
+- overlays should ideally deploy entire demo environment
+- The scope of kustomize in *./overlays* should be: 
   - Deploy OpenShift GitOps - *base*
   - Deploy other components via Application CRD (GitOps)
   - GitOps will sync applications to provision other demo components.
+- The customize in `./products` don't need to be in this repo, it is here only for convenience

@@ -5,5 +5,5 @@ resources:
   - ../../base
 
 components:
-  - ../../components/ansible
+#   - ../../components/ansible
   - ../../components/tekton

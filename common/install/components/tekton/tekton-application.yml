@@ -11,7 +11,7 @@ spec:
   destination:
     namespace: openshift-operators
     server: https://kubernetes.default.svc
-    syncPolicy:
+  syncPolicy:
     automated: 
       selfHeal: true
       allowEmpty: false
