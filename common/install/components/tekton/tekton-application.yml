@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tekton
+  namespace: openshift-gitops
+spec:
+  source:
+    repoURL: https://github.com/jwerak/ed-main.git
+    targetRevision: HEAD
+    path: products/tekton
+  destination:
+    namespace: openshift-operators
+    server: https://kubernetes.default.svc
+    syncPolicy:
+    automated: 
+      selfHeal: true
+      allowEmpty: false
+  project: default

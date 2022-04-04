@@ -6,3 +6,4 @@ resources:
 
 components:
   - ../../components/ansible
+  - ../../components/tekton
