@@ -10,6 +10,8 @@ Many concepts are adopted from [Red Hat industrial edge demos](https://hybrid-cl
   - [Repositories](#repositories)
   - [Setup Demo](#setup-demo)
     - [Prerequisites](#prerequisites)
+    - [Setup OCP Cluster](#setup-ocp-cluster)
+    - [Architecture of this repo](#architecture-of-this-repo)
 
 ## Repositories
 
@@ -29,3 +31,20 @@ Tools:
 
 Environments:
 - OpenShift Cluster (Tested on OCP 4.9)
+- Ansible Controller with Linux hosts
+
+### Setup OCP Cluster
+
+- Authenticate to cluster
+  - `oc login --token=sha256~TOKEN --server=https://api.cluster.example.com:6443`
+- Setup Operator and application
+  - `make install`
+
+### Architecture of this repo
+
+- Main kustomizations files are under *./overlays/*, e.g. *./overlays/demo/*
+- overlays should ideally deploy demo environment
+- The scope of kustomize in overlays should be: 
+  - Deploy OpenShift GitOps - *base*
+  - Deploy other components via Application CRD (GitOps)
+  - GitOps will sync applications to provision other demo components.
